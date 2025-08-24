@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RendangKoroSmart - Scan Label Indikator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>RendangKoroSmart</h1>
+    <p>Scan label indikator untuk menampilkan status kualitas dan harga otomatis.</p>
+  </header>
+
+  <main>
+    <section class="scanner">
+      <div class="video-wrapper">
+        <video id="video" autoplay playsinline></video>
+        <div class="guide-box">Arahkan label indikator ke kotak ini</div>
+      </div>
+      <div class="controls">
+        <button id="capture">Scan Warna</button>
+        <button id="toggle-camera">Ganti Kamera</button>
+      </div>
+      <canvas id="canvas" style="display:none;"></canvas>
+      <div id="color-preview" class="color-preview"></div>
+      <div id="color-result" class="color-result"></div>
+    </section>
+
+    <section class="product-info">
+      <h2>Informasi Produk</h2>
+      <div id="product-details" class="card">
+        <h3>Rendang Tempe Koro Pedang</h3>
+        <p class="desc">
+          Rendang berbahan dasar tempe koro pedang dengan inovasi smart packaging
+          menggunakan Time-Temperature Indicator (TTI). Warna indikator membantu
+          memantau kelayakan konsumsi produk.
+        </p>
+        <ul class="legend">
+          <li><span class="status merah-kecoklatan"></span> Merah Kecoklatan = Sangat Layak</li>
+          <li><span class="status merah-kekuningan"></span> Merah Kekuningan = Masih Layak</li>
+          <li><span class="status kuning-terang"></span> Kuning Terang = Tidak Layak</li>
+        </ul>
+        <div class="price-line">Harga otomatis: <strong id="price">-</strong></div>
+      </div>
+    </section>
+
+    <section class="settings">
+      <h2>Pengaturan (opsional)</h2>
+      <div class="grid">
+        <div class="card">
+          <h4>Harga Dasar</h4>
+          <label>Harga Sangat Layak (Rp)
+            <input type="number" id="price-good" value="35000">
+          </label>
+          <label>Harga Masih Layak (Rp)
+            <input type="number" id="price-fair" value="25000">
+          </label>
+          <label>Harga Tidak Layak (Rp)
+            <input type="number" id="price-bad" value="0">
+          </label>
+          <button id="save-prices">Simpan Harga</button>
+        </div>
+        <div class="card">
+          <h4>Threshold Warna (sementara)</h4>
+          <p>Merah Kecoklatan mengacu pada data kamu (R 70–110, G 10–50, B 10–40). Dua warna lain masih perkiraan dan bisa diperbarui saat kamu kirim data terbaru.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 RendangKoroSmart</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
